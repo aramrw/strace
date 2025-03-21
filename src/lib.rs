@@ -1,6 +1,8 @@
 //! Lightweight tracing library
 
 #![deny(missing_docs)]
+pub use chrono;
+pub use color_print;
 
 mod macros {
     /// Debug Date-Time
