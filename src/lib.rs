@@ -1,12 +1,23 @@
-use chrono::{DateTime, Local};
-use color_print::cprintln;
+//! Lightweight tracing library
 
-/// Debug Date-Time
-macro_rules! dbug {
-    ($s:expr) => {{
-        let dt: DateTime<Local> = Local::now();
-        cprintln!("{} <b>DEBUG</>: {}", dt, $s);
-    }};
+#![deny(missing_docs)]
+
+mod macros {
+    /// Debug Date-Time
+    ///
+    /// # Example
+    /// ```
+    /// use strace::dbug;
+    /// dbug!("serving...")
+    /// // output:
+    /// ```
+    #[macro_export]
+    macro_rules! dbug {
+        ($s:expr) => {{
+            let dt: chrono::DateTime<chrono::Local> = chrono::Local::now();
+            color_print::cprintln!("{} <b>DEBUG</>: {}", dt, $s);
+        }};
+    }
 }
 
 #[cfg(test)]
