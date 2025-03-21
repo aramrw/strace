@@ -15,9 +15,13 @@ mod macros {
     /// ```
     #[macro_export]
     macro_rules! dbug {
-        ($s:expr) => {{
+        ($msg:expr) => {{
             let dt: $crate::chrono::DateTime<$crate::chrono::Local> = $crate::chrono::Local::now();
-            $crate::color_print::cprintln!("{} <b>DEBUG</>: {}", dt, $s);
+            $crate::color_print::cprintln!("{} <b>DEBUG</>: {}", dt, $msg);
+        }};
+        ($msg:expr, $title:expr) => {{
+            let dt: $crate::chrono::DateTime<$crate::chrono::Local> = $crate::chrono::Local::now();
+            $crate::color_print::cprintln!("{} <b>DEBUG</> _ <bold>{}</bold>: ", dt, $title, $msg);
         }};
     }
 }
