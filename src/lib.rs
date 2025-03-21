@@ -16,8 +16,8 @@ mod macros {
     #[macro_export]
     macro_rules! dbug {
         ($s:expr) => {{
-            let dt: chrono::DateTime<chrono::Local> = chrono::Local::now();
-            color_print::cprintln!("{} <b>DEBUG</>: {}", dt, $s);
+            let dt: $crate::chrono::DateTime<$crate::chrono::Local> = $crate::chrono::Local::now();
+            $crate::color_print::cprintln!("{} <b>DEBUG</>: {}", dt, $s);
         }};
     }
 }
