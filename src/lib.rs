@@ -21,7 +21,7 @@ mod macros {
         }};
         ($msg:expr, $title:expr) => {{
             let dt: $crate::chrono::DateTime<$crate::chrono::Local> = $crate::chrono::Local::now();
-            $crate::color_print::cprintln!("{} <b>DEBUG</> _ <bold>{}</bold>: ", dt, $title, $msg);
+            $crate::color_print::cprintln!("{} <b>DEBUG</> _ <bold>{}</bold>: {}", dt, $title, $msg);
         }};
     }
 }
